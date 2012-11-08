@@ -1,0 +1,380 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google IO 2012</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/google_developers_logo.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Google Drive</h2>
+    </hgroup>
+    <article>
+      <img style="position: absolute; right: 100px;" src="images/access.png" class="reflect" alt="Description" title="Description">
+      <ul>
+        <li>Access Everywhere</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Google Drive</h2>
+    </hgroup>
+    <article>
+      <img style="position: absolute; right: 100px;" src="images/safe.png" class="reflect" alt="Description" title="Description">
+      <ul>
+        <li>Access Everywhere</li>
+        <li>Store your files in safe place</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Google Drive</h2>
+    </hgroup>
+    <article>
+      <img style="position: absolute; right: 100px;" src="images/collaborate.png" class="reflect" alt="Description" title="Description">
+      <ul>
+        <li>Access Everywhere</li>
+        <li>Store your files in safe place</li>
+        <li>Collaboration</li>
+      </ul>
+    </article>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Google Drive</h2>
+    </hgroup>
+    <article>
+      <img style="position: absolute; right: 50px;" src="images/free.png" class="reflect" alt="Description" title="Description">
+      <ul>
+        <li>Access Everywhere</li>
+        <li>Store your files in safe place</li>
+        <li>Collaboration</li>
+        <li>5GB Free Storage</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Google Drive API</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>interface that allows 3rd party clients to interact with Google Drive</li>
+        <li>RESTful API</li>
+        <li>1 of the 35+ Dicovery based APIs Google provide for its Product and Servives</li>
+        <li>Google+, Calendar, Analytics, Tasks, Hangout...</li>
+        <li>Requests made to https://www.googleapis.com, Google's APIs frontend</li>
+      </ul>
+
+      <!-- <p>Example<br><br><code>GET https://www.googleapis.com/drive/v2/files?key={YOUR_API_KEY}</code></p> -->
+      <p>Ex: URL Shortener API<br><code>GET https://www.googleapis.com/urlshortener/v1/url?shortUrl=http://goo.gl/fbsS</code></p>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>API Clients</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>For ease of access, Google provides API clients in many languages</li>
+        <li>Google maintains nine clients including JavaScript, Java, Objective-C, and Python</li>
+        <li><a href="https://developers.google.com/+/downloads/">Google's API Clients</a></li>
+      </ul>
+
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Using the JS Client</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="javascript">
+
+  // Our goal is to Make a Drive API call using the JS Client
+  var req = <b>gapi.client.drive.files.list();</b>
+  req.execute(function(resp) {
+      console.log('My List of Files', resp);
+  });
+
+  </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Steps to Get Started</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>1. Load the JS Client</li>
+        <pre class="prettyprint" data-lang="html"><span class="tag">&lt;html&gt;</span><span class="pln">
+  </span><span class="tag">&lt;head&gt;</span><span class="pln">
+    </span><span class="tag">&lt;script&gt;</span><span class="pln">
+      </span><b><span class="kwd">function</span><span class="pln"> handleClientLoad</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// Use the JS Client</span><span class="pln">
+      </span><span class="pun">}</span></b><span class="pln">
+    </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"</span><b><span class="atv">https://apis.google.com/js/client.js?onload=handleClientLoad</span></b><span class="atv">"</span><span class="tag">&gt;</span><span class="pln">
+    </span><span class="tag">&lt;/script&gt;</span><span class="pln">
+  </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+</span><span class="tag">&lt;/html&gt;</span></pre>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Steps to Get Started</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>1. Load the JS Client</li>
+        <li>2. Get Authorization from user to access his Data</li>
+      </ul>
+    </article>
+  </slide>
+
+
+
+
+  <slide>
+    <hgroup>
+      <h3>Step 2: Get Authorization from user to access his Data</h3>
+    </hgroup>
+    <article class="smaller">
+  <pre class="prettyprint" data-lang="javascript">
+
+    var SCOPES = 'https://www.googleapis.com/auth/drive'; 
+
+    function handleClientLoad() {
+      window.setTimeout(checkAuth,1);
+    }
+
+    function checkAuth() {
+    <b>   gapi.auth.authorize({client_id: clientId, scope: SCOPES, immediate: true}, handleAuthResult);</b>
+    }
+
+    function handleAuthResult(authResult) {
+      var authorizeButton = document.getElementById('authorize-button');
+      <b>if (authResult && !authResult.error) { </b>
+        authorizeButton.style.visibility = 'hidden';
+      <b>// we are authorized and ready to use </b>
+    
+      } else {
+        authorizeButton.style.visibility = '';
+      <b>authorizeButton.onclick = handleAuthClick;</b>
+      }
+    }
+
+    function handleAuthClick(event) {
+      gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+    }
+  </pre>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3>Google APIs Console</h3>
+    </hgroup>
+    <article>
+      <p>where developers:</p>
+      <ul>
+          <li>Register their Apps to have the Client ID to identify their app</li>
+          <li>activate APIs the app needs to access</li>
+          <li>manage their project: Quota, billing, team management</li>
+       </ul>
+      <p><a href="https://code.google.com/apis/console/">https://code.google.com/apis/console/</a></p>
+      
+    </article>
+  </slide>
+
+<slide data-slide-num="32" data-total-slides="42" class="current">
+    <hgroup>
+      <h2>OAuth 2.0 overview</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <p>
+          "OAuth is a security protocol that enables users to grant third-party access to their
+          web resources without sharing their password"<sup>[1]</sup>
+        </p>
+        <p>OAuth consists of two pieces: Authentication and authorization</p>
+      </ul>
+      <div>
+        <p>Links</p>
+        <ul>
+          <li>
+            OAuth 2.0 Official Site and Working Draft <br><a href="http://oauth.net/2/">http://oauth.net/2/</a>
+          </li>
+          <li>
+            Google Developers OAuth 2.0 Documentation <br>
+            <a href="https://developers.google.com/accounts/docs/OAuth2">https://developers.google.com/accounts/docs/OAuth2</a>
+          </li>
+          <li>
+            Brief intro from Hueniverse.com <br>
+            <a href="http://hueniverse.com/2010/05/introducing-oauth-2-0/">http://hueniverse.com/2010/05/introducing-oauth-2-0/</a>
+          </li>
+        </ul>
+      </div>
+      <footer class="source"><sup>1</sup>http://hueniverse.com/2010/05/introducing-oauth-2-0/</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Steps to Get Started</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>1. Load the JS Client</li>
+        <li>2. Get Authorization from user to access his Data</li>
+        <li>3. Load the Drive API</li>
+      </ul>
+
+  <pre class="prettyprint" data-lang="javascript">
+
+      function loadDriveAPI() {
+          <b>gapi.client.load('drive', 'v2', makeDriveAPICall); </b>
+      }
+
+      function makeDriveAPICall() {
+          var req = gapi.client.drive.files.list();
+          req.execute(function(resp) {
+              console.log('Google Drive: List of Files', resp);
+          });
+      }
+  </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Demo</h2>
+    </hgroup>
+    <article>
+      <p>Review</p>
+      <ul>
+        <li>1. Load the JS Client</li>
+        <li>2. Get Authorization from user to access his Data</li>
+        <li>3. Load the Drive API</li>
+        <li>4. Drive API call</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h3>Google APIs Explorer</h3>
+    </hgroup>
+    <article>
+      <ul>
+          <li>Learn about the all the availables methods for Drive API</li>
+          <li>Try API calls directly from the explorer</li>
+       </ul>
+      <p><a href="https://developers.google.com/apis-explorer/#p/drive/v2/">https://developers.google.com/apis-explorer/#p/drive/v2/</a></p>
+      
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Sample Application</h2>
+    </hgroup>
+    <article>
+      Collabspot Boards
+      <p><a href="http://app.collabspot.com/"> http://app.collabspot.com/</a></p>
+    </article>
+  </slide>
+
+
+
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>gino@collabspot.com</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/google_developers_logo_white.png"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
